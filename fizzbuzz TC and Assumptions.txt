@@ -1,0 +1,73 @@
+
+
+/*
+ * ##################################################################
+ * 
+ * Test Cases for FizzBuzz API
+ *
+####################################################################
+
+
+Requirement:
+     - The API is hosted at http://fizzbuzz-exercise.herokuapp.com/api/fizzbuzz-calculator
+     - The API supports only POST method with following details
+        HEADER:  content-type : application/json
+        BODY: {"Values": ["3", "9", "  ", "15"]}
+
+The application accepts an array of values and for each value in the array does the following:
+
+1.	If the value is a multiple of 3 outputs the word “Fizz”
+2.	If the value is a multiple of 5 outputs the word “Buzz”
+3.	If the value is a multiple of both 3 and 5 outputs the word “FizzBuzz”
+4.	If the value is not numeric outputs “Invalid Item”
+5.	Finally, the application returns the following outputs for each division performed.  The table below shows a list of inputs and their corresponding expected outputs.
+
+Input	Result
+1		Divided 1 by 3
+		Divided 1 by 5
+3		Fizz
+5		Buzz
+<empty>	Invalid Item
+15		FizzBuzz
+A		Invalid item
+23		Divided 23 by 3
+		Divided 23 by 5
+
+#############################################################################################
+(There was a small variation between the output here and the actual output highlighted below)
+ Expected: 1		Divided 1 by 3
+					Divided 1 by 5
+
+Actual: 1		Divided 1 by 3
+	    1		Divided 1 by 5
+
+###########################################################################################
+
+   Test Cases
+   	- Check for the response code for a valid connection
+   	- Check for the Content-Type of Response
+   	- Validate that proper header are being passed
+   	- Validate that when we try to access unsupported methods, appropriate status code is returned
+   	- Verify the actual output against the expected output
+   	- Verify that the response time of the API is acceptable
+
+##########################################################################################   
+Assumptions
+
+  - API is a public API and does not need any authentication to access
+  - API responds with 200 even when there is no input ****** (would have preferred 422 as the response code) ******
+  - Successful API response gives back an appropriate response code and the response body contains the result of the desired action 
+  - API works only for Integers( -2147483648 to 2147483647)....anything beyond that will return Invalid Item
+  - Payload has limits set at server level
+
+ ########################################################################################
+
+ Observations:
+ 	- Response inconsistency ("A" returns "Invalid Item"  whereas "" returns "Invalid item"(Note the lowercase and uppercase "I" in "Item" 
+ 	  in the 2 scenarios
+ 	- Response code for a user error in input values returns 500(Server Error) whereas it should return 422(Client error)
+
+
+ *
+ *
+ */
